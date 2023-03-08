@@ -12,7 +12,7 @@ export function Home() {
     //     category: string;
     // };
     const [products, setProducts] = useState([]);
-    const data = useLoaderData() 
+    const data:any = useLoaderData() 
     useEffect(()=> {
         setProducts(data.data);
     }, [data]);

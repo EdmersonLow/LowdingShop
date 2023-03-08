@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = {
+type InitialStateType = {
+  productData: any[],
+  userInfo: any,
+};
+
+const initialState: InitialStateType = {
   productData: [],
   userInfo: null,
 };
@@ -7,21 +12,22 @@ const initialState = {
 export const bazarSlice = createSlice({
   name: "bazar",
   initialState,
+  
   reducers: {
     addToCart: (state, action) => {
       const item = state.productData.find(
-        (item) => item._id === action.payload._id
+        (item:any) => item._id === action.payload._id
       );
 
       if (item) {
-        item.quantity += action.payload.quantity;
+        item.quantity+= action.payload.quantity;
       } else {
         state.productData.push(action.payload);
       }
     },
     increamentQuantity: (state, action) => {
       const item = state.productData.find(
-        (item) => item._id === action.payload._id
+        (item:any) => item._id === action.payload._id
       );
       if (item) {
         item.quantity++;
@@ -29,7 +35,7 @@ export const bazarSlice = createSlice({
     },
     decrementQuantity: (state, action) => {
       const item = state.productData.find(
-        (item) => item._id === action.payload._id
+        (item:any) => item._id === action.payload._id
       );
       if (item.quantity === 1) {
         item.quantity = 1;
