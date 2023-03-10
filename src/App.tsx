@@ -28,11 +28,13 @@ const router =  createBrowserRouter([
       },
       {
         path: 'product/:id',
-        element:<Product />
+        element:<Product />,
+        loader: productsData,
       },
       {
         path: '/cart',
-        element: <Cart/>
+        element: <Cart/>,
+        loader: productsData,
       },
     ]
   },

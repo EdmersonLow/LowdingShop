@@ -5,13 +5,27 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/bazarSlice";
 import { ToastContainer, toast } from "react-toastify";
 
+interface itemDetails {
+  _id: string;
+  title: string;
+  image: string;
+  oldPrice: number;
+  price: number;
+  qty: number;
+  quantity: number;
+  description: string;
+  category: string;
+  isNew: boolean;
+}
+
 export function Product () {
   const dispatch = useDispatch();
-  const [details, Details] = useState<any>({});
+  const [details, Details] = useState<itemDetails>({_id:"1", title:"1", image:"1", oldPrice:1, price:1, qty:1, description:"1", category:"1", isNew:true, quantity:1});
   let [baseQty, setBaseQty] = useState(1);
   const location = useLocation();
   useEffect(() => {
     Details(location.state.item);
+    console.log(location.state);
   }, [location]);
 
   return (
@@ -60,7 +74,7 @@ export function Product () {
               <div className="flex items-center gap-4 text-sm font-semibold">
                 <button
                   onClick={() =>
-                    setBaseQty(baseQty === 1 ? (baseQty = 1) : baseQty - 1)
+                    setBaseQty(baseQty === 1 ? (baseQty = 1) : baseQty - 1 )
                   }
                   className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
                 >
@@ -68,7 +82,7 @@ export function Product () {
                 </button>
                 {baseQty}
                 <button
-                  onClick={() => setBaseQty(baseQty + 1)}
+                  onClick={() => {setBaseQty(baseQty==details.qty?baseQty:baseQty+1);console.log(details.qty);}}
                   className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
                 >
                   +
@@ -76,17 +90,19 @@ export function Product () {
               </div>
             </div>
             <button
-              onClick={() =>
+              onClick={() => { details.quantity = baseQty;
                 dispatch(
                   addToCart({
                     _id: details._id,
                     title: details.title,
                     image: details.image,
                     price: details.price,
-                    quantity: baseQty,
+                    quantity: details.quantity,
+                    qty : details.qty,
                     description: details.description,
-                  })
-                ) && toast.success(`${details.title} is added`)
+                  }
+                  )
+                ) && toast.success(`${details.title} is added`)}
               }
               className="bg-black text-white py-3 px-6 active:bg-gray-800"
             >
@@ -115,3 +131,4 @@ export function Product () {
   );
 };
 
+export let baseQty: number;

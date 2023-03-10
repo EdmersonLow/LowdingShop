@@ -5,35 +5,35 @@ import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import {CartItem} from "../components/CartItem";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useLoaderData } from 'react-router-dom';
+
+
 
 export function Cart  () {
   const productData = useSelector((state :any) => state.bazar.productData);
-  const userInfo = useSelector((state:any) => state.bazar.userInfo);
+  const dispatch = useDispatch();
   const [payNow, setPayNow] = useState(false);
   const [totalAmt, setTotalAmt] = useState("");
-  useEffect(() => {
+  const [qty ,setQty ] = useState(1);
+  const [products, setProducts] = useState([]);
+    useEffect(() => {
     let price = 0;
     productData.map((item:any) => {
       price += item.price * item.quantity;
       return price;
     });
+    // setProducts(data.data);
     setTotalAmt(price.toFixed(2));
   }, [productData]);
 
-  const handleCheckout = () => {
-    if (userInfo) {
-      setPayNow(true);
-    } else {
-      toast.error("Please sign in to Checkout");
-    }
-  };
-//   const payment = async (token) => {
-//     await axios.post("http://localhost:8000/pay", {
-//       amount: totalAmt * 100,
-//       token: token,
-//     });
-//   };
-
+  const handleCheckout = async  () => {
+    await productData.map((item:any) => {
+      const products = axios.get
+    ("http://localhost:9999/lowdingshop/checkout?qty="+item.quantity+"&_id="+item._id);
+    console.log(products);
+  });
+  }
   return (
     <div>
       <img

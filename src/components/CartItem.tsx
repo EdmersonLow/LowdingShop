@@ -3,6 +3,8 @@ import { MdOutlineClose } from "react-icons/md";
 import { HiOutlineArrowLeft } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { baseQty } from "./Product";
+import { useLoaderData } from 'react-router-dom';
 import {
   decrementQuantity,
   deleteItem,
@@ -10,10 +12,12 @@ import {
   resetCart,
 } from "../redux/bazarSlice";
 import { ToastContainer, toast } from "react-toastify";
+import { iteratorSymbol } from "immer/dist/internal";
 
 export function CartItem() {
   const dispatch = useDispatch();
   const productData = useSelector((state :any) => state.bazar.productData);
+  let data:any = useLoaderData() // export the data variable
   return (
     <div className="w-2/3 pr-10">
       <div className="w-full">
@@ -46,16 +50,22 @@ export function CartItem() {
                   <div className="flex items-center gap-4 text-sm font-semibold">
                     <span
                       onClick={() =>
+                        {
+                         item.quantity === 1?item.quantity=1:
                         dispatch(
                           decrementQuantity({
                             _id: item._id,
                             title: item.title,
                             image: item.image,
                             price: item.price,
+                            qty: item.qty,
                             quantity: 1,
                             description: item.description,
                           })
                         )
+                        // item.qty === 1?item.qty=1:item.qty= item.qity-1;
+                        console.log("item: "+item.qty);
+                        }
                       }
                       className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
                     >
@@ -64,6 +74,8 @@ export function CartItem() {
                     {item.quantity}
                     <span
                       onClick={() =>
+                        {
+                        item.qty == data.data[item._id-1].qty?item.qty=data.data[item._id-1].qty:
                         dispatch(
                           increamentQuantity({
                             _id: item._id,
@@ -74,6 +86,9 @@ export function CartItem() {
                             description: item.description,
                           })
                         )
+                        item.qty == data.data[item._id-1].qty?item.qty=data.data[item._id-1].qty:item.qty++;
+                        console.log("item: "+item.qty);
+                        }
                       }
                       className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
                     >
@@ -81,7 +96,7 @@ export function CartItem() {
                     </span>
                   </div>
                 </div>
-                <p className="w-14">${item.quantity * item.price}</p>
+                <p className="w-14">${item.quantity* item.price}</p>
              
               </div>
             ))}
