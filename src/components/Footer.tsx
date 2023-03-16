@@ -21,11 +21,11 @@ export const Footer = () => {
         <p className="text-black text-sm tracking-wide">Copyright Lowding Shop </p>
         <p className='text-black text-sm tracking-wide'>All Rights Reserved</p>
           <div className='flex gap-5 text-lg '>
-            <ImGithub  className="hover:text-white duration-300 cursor-pointer "/>
-            <FaFacebookF className="hover:text-white duration-300 cursor-pointer "/>
-            <FaInstagram className="hover:text-white duration-300 cursor-pointer "/>
-            <FaTwitter className="hover:text-white duration-300 cursor-pointer "/>
-            <FaYoutube className="hover:text-white duration-300 cursor-pointer "/>
+            <ImGithub  className="hover:text-black duration-300 cursor-pointer "/>
+            <FaFacebookF className="hover:text-black duration-300 cursor-pointer "/>
+            <FaInstagram className="hover:text-black duration-300 cursor-pointer "/>
+            <FaTwitter className="hover:text-black duration-300 cursor-pointer "/>
+            <FaYoutube className="hover:text-black duration-300 cursor-pointer "/>
           </div>
         </div>
         <div>
@@ -40,25 +40,25 @@ export const Footer = () => {
       <div>
       <h2 className="text-2xl font-semibold text-black mb-4">Profile </h2>
       <div className="flex flex-col gap-2 text-base">
-      <p className='flex items-center gap-3 hover:text-white duration-300 cursor-pointer'>
+      <p className='flex items-center gap-3 hover:text-black duration-300 cursor-pointer'>
         <span>
           <BsPersonFill/>
         </span>{""}
         My Account
       </p>
-      <p className='flex items-center gap-3 hover:text-white duration-300 cursor-pointer'>
+      <p className='flex items-center gap-3 hover:text-black duration-300 cursor-pointer'>
         <span>
           <BsPaypal/>
         </span>{""}
         Payment
       </p>
-      <p className='flex items-center gap-3 hover:text-white duration-300 cursor-pointer'>
+      <p className='flex items-center gap-3 hover:text-black duration-300 cursor-pointer'>
         <span>
           <FaHome/>
         </span>{""}
         Order Tracking 
       </p>
-      <p className='flex items-center gap-3 hover:text-white duration-300 cursor-pointer'>
+      <p className='flex items-center gap-3 hover:text-black duration-300 cursor-pointer'>
         <span>
           <MdLocationOn/>
         </span>{""}

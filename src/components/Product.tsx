@@ -39,7 +39,7 @@ export function Product () {
           />
           <div className="absolute top-4 right-0">
             {details.isNew && (
-              <p className="bg-black text-white font-semibold font-titleFont px-8 py-1">
+              <p className="bg-[#D6EADF] text-black font-semibold font-titleFont px-8 py-1">
                 Sale
               </p>
             )}
@@ -76,14 +76,14 @@ export function Product () {
                   onClick={() =>
                     setBaseQty(baseQty === 1 ? (baseQty = 1) : baseQty - 1 )
                   }
-                  className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
+                  className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-black cursor-pointer duration-300 active:bg-[#D6EADF]"
                 >
                   -
                 </button>
                 {baseQty}
                 <button
                   onClick={() => {setBaseQty(baseQty==details.qty?baseQty:baseQty+1);console.log(details.qty);}}
-                  className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
+                  className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-black cursor-pointer duration-300 active:bg-[#D6EADF]"
                 >
                   +
                 </button>
@@ -104,7 +104,7 @@ export function Product () {
                   )
                 ) && toast.success(`${details.title} is added`)}
               }
-              className="bg-black text-white py-3 px-6 active:bg-gray-800"
+              className="bg-[#D6EADF] text-black py-3 px-6 active:bg-gray-800"
             >
               add to cart
             </button>

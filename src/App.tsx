@@ -1,11 +1,15 @@
-import { Routes, Route, createBrowserRouter,Outlet, RouterProvider ,ScrollRestoration } from 'react-router-dom'
+import { Routes, Route, createBrowserRouter,Outlet, RouterProvider ,ScrollRestoration, Navigate } from 'react-router-dom'
 import {Cart } from './pages/Cart'
 import {Home}from './pages/Home'
-import { User} from './pages/User'
+import { Login } from './pages/Login'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
-import { productsData } from './api/api'
+import { productsData, usersData } from './api/api'
 import { Product } from './components/Product'
+import { Logina } from './pages/Logina'
+import { Sucessful } from './Sucessful'
+import { Error } from './Error'
+import { Logout } from './pages/Logout'
 const Layout=()=>{
   return(
   <div>
@@ -26,6 +30,16 @@ const router =  createBrowserRouter([
         element: <Home/>,
         loader: productsData,
       },
+      // error page
+      {
+        path: '*',
+        element:<Error/>
+      },
+      {
+        path: '/logina',
+        element: <Logina/>,
+        loader: usersData,
+      },
       {
         path: 'product/:id',
         element:<Product />,
@@ -36,7 +50,25 @@ const router =  createBrowserRouter([
         element: <Cart/>,
         loader: productsData,
       },
+      {
+        path:"/login",
+        element:<Login/>,
+        loader : usersData,
+      },
+      {
+        path:"/logina",
+        element:<Logina/>,
+      },
+      {
+        path: '/sucessful',
+        element: <Sucessful/>,
+      },
+      {
+        path: '/logout',
+        element: <Logout/>,
+      }
     ]
+  
   },
 ],{
   basename : '/lowdingshop',

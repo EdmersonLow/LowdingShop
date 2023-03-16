@@ -72,7 +72,7 @@ export const ProductsCard = ({ product }:any) => {
       </div>
       <div className="absolute top-4 right-0">
         {product.isNew && (
-          <p className="bg-black text-white font-semibold font-titleFont px-6 py-1">
+          <p className="bg-[#D6EADF] text-black font-semibold font-titleFont px-6 py-1">
             Sale
           </p>
         )}

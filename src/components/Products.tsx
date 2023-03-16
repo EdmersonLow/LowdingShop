@@ -5,15 +5,12 @@ export const Products = ({ products } : any) => {
   return (
     <div className="py-10">
       <div className="flex flex-col items-center gap-4">
-        <h1 className="text-2xl bg-black text-white py-2 w-80 text-center">
-          shopping everyday
+        <h1 className="text-2xl bg-[#D6EADF] text-black py-2 w-80 text-center">
+          Shop with Lowding Shop 
         </h1>
-        <span className="w-20 h-[3px] bg-black"></span>
+        <span className="w-20 h-[3px] bg-[#D6EADF]"></span>
         <p className="max-w-[700px] text-gray-600 text-center">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo,
-          quos fugit inventore, cumque quae corporis ratione tenetur eos
-          voluptates neque magnam soluta aperiam omnis perspiciatis reiciendis
-          asperiores repudiandae assumenda quidem.
+        Lowdingshop is an online store that sells fashion and electronics products. Our fashion collection includes a variety of clothing, shoes, and accessories for both men and women, while our electronics category features the latest gadgets, smartphones, laptops, and cameras. We offer high-quality products from trusted brands and designers, ensuring customer satisfaction. Shop with us and experience convenient online shopping with fast and secure delivery.
         </p>
       </div>
       {/* =================== Products Start here ================= */}

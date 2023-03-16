@@ -67,7 +67,7 @@ export function CartItem() {
                         console.log("item: "+item.qty);
                         }
                       }
-                      className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
+                      className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-black cursor-pointer duration-300 active:bg-[#D6EADF]"
                     >
                       -
                     </span>
@@ -90,7 +90,7 @@ export function CartItem() {
                         console.log("item: "+item.qty);
                         }
                       }
-                      className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
+                      className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-black cursor-pointer duration-300 active:bg-[#D6EADF]"
                     >
                       +
                     </span>
@@ -105,7 +105,7 @@ export function CartItem() {
             onClick={() =>
               dispatch(resetCart()) && toast.error("Your Cart is Empty!")
             }
-            className="bg-red-500 text-white mt-8 ml-7 py-1 px-6 hover:bg-red-800 duration-300"
+            className="bg-red-500 text-black mt-8 ml-7 py-1 px-6 hover:bg-red-800 duration-300"
           >
             Reset Cart
           </button>
